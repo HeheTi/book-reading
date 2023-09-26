@@ -1,0 +1,9 @@
+.logo {
+  color: var(--primaryColor);
+  font-family:
+    Abril Fatface,
+    cursive;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}

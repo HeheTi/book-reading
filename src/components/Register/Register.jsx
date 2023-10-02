@@ -2,17 +2,19 @@ import GoogleBtn from 'main/GoogleBtn';
 import RegisterForm from './RegisterForm';
 import RegisterDescInfo from './RegisterDescInfo';
 import auth from 'data/authData.json';
+import BgImageAuth from 'main/BgImageAuth';
 
 const Register = () => {
   return (
     <div>
-      <div>
+      <BgImageAuth>
         <GoogleBtn />
         <RegisterForm />
         <a href="/">
           {auth.register.ask} <span>{auth.register.btnRIn}</span>
         </a>
-      </div>
+      </BgImageAuth>
+
       <div>
         <RegisterDescInfo />
       </div>

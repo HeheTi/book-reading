@@ -1,0 +1,48 @@
+.bgWrapper {
+  background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+    url('images/bg/mob-pic.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .bgWrapper {
+    background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+      url('images/bg/mob-pic@2x.jpg');
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bgWrapper {
+    background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+      url('images/bg/tab-pic.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .bgWrapper {
+      background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+        url('images/bg/tab-pic@2x.jpg');
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bgWrapper {
+    background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+      url('images/bg/desc-pic.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .bgWrapper {
+      background-image: linear-gradient(var(--bg-img), var(--bg-img)),
+        url('images/bg/desc-pic@2x.jpg');
+    }
+  }
+}

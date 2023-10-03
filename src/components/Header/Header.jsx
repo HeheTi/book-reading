@@ -1,10 +1,17 @@
 import Logo from 'main/Logo';
+import LogoutBtn from 'main/LogoutBtn';
+import s from './Header.module.css';
 
 const Header = () => {
   return (
-    <div>
-      <Logo />
-    </div>
+    <header className={s.header}>
+      <div className="container">
+        <Logo />
+        <div>
+          <LogoutBtn />
+        </div>
+      </div>
+    </header>
   );
 };
 

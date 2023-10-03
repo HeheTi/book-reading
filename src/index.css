@@ -8,6 +8,16 @@ font-family: 'Open Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 :root {
   --primaryColor: #242a37;
   --secondaryColor: #898f9f;
@@ -21,6 +31,7 @@ font-family: 'Roboto', sans-serif;
   --border: 1px solid #a6abb9;
   --googleTextColor: #707375;
   --googleShadow: 0px 2px 2px 0px rgba(9, 30, 63, 0.15);
+  --bg-img: rgba(9, 30, 63, 0.8);
 }
 
 body {
@@ -29,4 +40,49 @@ body {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 480px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

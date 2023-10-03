@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import auth from 'data/authData.json';
+import { loginUser } from 'redux/auth/authOperations';
 
 const LoginForm = props => {
   const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const onHandlerSubmit = e => {
     e.preventDefault();
-    console.log({ email, pass });
+
+    if (!email || !password) {
+      return;
+    }
+
+    console.log({ email, password });
+    dispatch(loginUser({ email, password }));
   };
 
   return (
@@ -22,13 +31,13 @@ const LoginForm = props => {
         placeholder={auth.email.placeholder}
       />
 
-      <label htmlFor="login-pass">{auth.pass.title}</label>
+      <label htmlFor="login-password">{auth.pass.title}</label>
       <input
-        type="pass"
-        name="pass"
-        id="login-pass"
-        value={pass}
-        onChange={e => setPass(e.target.value)}
+        type="password"
+        name="password"
+        id="login-password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
         placeholder={auth.pass.placeholder}
       />
       <button type="submit">{auth.login.btnIn}</button>

@@ -1,5 +1,5 @@
 export const ENDPOINTS = {
-  REGISTER: '/users/signup',
+  REGISTER: '/users/registration',
   LOGIN: '/users/login',
   LOGOUT: '/users/logout',
   REFRESH: '/users/refresh',

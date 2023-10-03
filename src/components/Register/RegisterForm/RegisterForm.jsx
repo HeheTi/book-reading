@@ -1,14 +1,35 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import auth from 'data/authData.json';
+import { registarionUser } from 'redux/auth/authOperations';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
-  const [verifyPass, setVerifyPass] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setRepeatPassword('');
+  };
 
   const onHandleSubmit = e => {
     e.preventDefault();
+
+    if (!name || !email || !password) {
+      return;
+    }
+
+    if (password !== repeatPassword) {
+      console.log(`need the same password`);
+      return;
+    }
+    console.log({ name, email, password, repeatPassword });
+    dispatch(registarionUser({ name, email, password, repeatPassword }));
   };
 
   return (
@@ -33,24 +54,26 @@ const RegisterForm = () => {
         placeholder={auth.email.placeholder}
       />
 
-      <label htmlFor="register-pass">{auth.pass.title}</label>
+      <label htmlFor="register-password">{auth.pass.title}</label>
       <input
-        type="text"
-        name="pass"
-        id="register-pass"
-        value={pass}
-        onChange={e => setPass(e.target.value)}
+        type="password"
+        name="password"
+        id="register-password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
         placeholder={auth.pass.placeholder}
       />
 
-      <label htmlFor="register-verify-pass">{auth.verifyPass.title}</label>
+      <label htmlFor="register-repeat-password">
+        {auth.repeatPassword.title}
+      </label>
       <input
-        type="text"
-        name="verifyPass"
-        id="register-verify-pass"
-        value={verifyPass}
-        onChange={e => setVerifyPass(e.target.value)}
-        placeholder={auth.verifyPass.placeholder}
+        type="password"
+        name="repeatPassword"
+        id="register-repeat-password"
+        value={repeatPassword}
+        onChange={e => setRepeatPassword(e.target.value)}
+        placeholder={auth.repeatPassword.placeholder}
       />
 
       <button>{auth.register.btnRegistr}</button>

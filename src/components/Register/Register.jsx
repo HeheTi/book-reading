@@ -3,6 +3,7 @@ import RegisterForm from './RegisterForm';
 import RegisterDescInfo from './RegisterDescInfo';
 import auth from 'data/authData.json';
 import BgImageAuth from 'main/BgImageAuth';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   return (
@@ -10,9 +11,9 @@ const Register = () => {
       <BgImageAuth>
         <GoogleBtn />
         <RegisterForm />
-        <a href="/">
+        <Link to="/login">
           {auth.register.ask} <span>{auth.register.btnRIn}</span>
-        </a>
+        </Link>
       </BgImageAuth>
 
       <div>

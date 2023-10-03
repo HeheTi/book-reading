@@ -37,7 +37,7 @@
     "title": "Пароль",
     "placeholder": "Пароль"
   },
-  "verifyPass": {
+  "repeatPassword": {
     "title": "Підтвердити пароль",
     "placeholder": "Продублюй свій пароль"
   },

@@ -1,10 +1,13 @@
 import Logo from 'main/Logo';
+import s from './Header.module.css';
 
 const Header = () => {
   return (
-    <div>
-      <Logo />
-    </div>
+    <header className={s.header}>
+      <div className="container">
+        <Logo />
+      </div>
+    </header>
   );
 };
 

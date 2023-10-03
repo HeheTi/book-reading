@@ -3,7 +3,6 @@ import {
   getCurrentUserInfo,
   loginUser,
   logoutUser,
-  refreshUserToken,
   registarionUser,
 } from './authOperations';
 
@@ -63,22 +62,6 @@ const authSlice = createSlice({
         state.refreshToken = '';
         state.loading = false;
       })
-
-      .addCase(registarionUser.pending, handlerPending)
-      .addCase(registarionUser.fulfilled, (state, { payload }) => {
-        state.user.name = payload.name;
-        state.user.email = payload.email;
-        state.loading = false;
-      })
-      .addCase(registarionUser.rejected, handlerRejected)
-
-      .addCase(refreshUserToken.pending, handlerPending)
-      .addCase(refreshUserToken.fulfilled, (state, { payload }) => {
-        state.accessToken = payload.accessToken;
-        state.refreshToken = payload.refreshToken;
-        state.loading = false;
-      })
-      .addCase(refreshUserToken.rejected, handlerRejected)
 
       .addCase(getCurrentUserInfo.pending, handlerPending)
       .addCase(getCurrentUserInfo.fulfilled, (state, { payload }) => {

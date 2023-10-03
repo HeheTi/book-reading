@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import updateLocalStorageMiddleware from 'middleware/updateLocalStorageMiddleware';
 
 const persistAuthConfig = {
   key: 'auth-info',
@@ -28,7 +29,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
       ignoredActionPaths: ['payload.error'],
-    }),
+    }).concat(updateLocalStorageMiddleware),
 });
 
 export const persistor = persistStore(store);

@@ -58,24 +58,6 @@ export const logoutUser = createAsyncThunk(
   },
 );
 
-export const refreshUserToken = createAsyncThunk(
-  'auth/refreshUserToken',
-  async (refreshToken, thunkAPI) => {
-    try {
-      const { data } = await instanseAxios.post(ENDPOINTS.REFRESH, {
-        refreshToken,
-      });
-      return data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(
-        e?.response?.data?.message ||
-          e.message ||
-          'Something went wrong, try again later!',
-      );
-    }
-  },
-);
-
 export const getCurrentUserInfo = createAsyncThunk(
   'auth/getCurrentUserInfo',
   async (_, thunkAPI) => {
